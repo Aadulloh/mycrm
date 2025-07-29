@@ -1,5 +1,0 @@
-add logout
-select course
-remove notification
-add bg for edit and make smaller remove button  
-mask for phone number
