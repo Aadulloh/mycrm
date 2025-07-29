@@ -1,10 +1,10 @@
 import { ApiUrls } from "@api/api-urls";
 import { apiConfig } from "@api/config";
-import type { Student } from "@types";
+import type { ParamsType, Student } from "@types";
 
 export const StudentService = {
-  async getStudents() {
-    const res = await apiConfig().getRequest(ApiUrls.STUDENT);
+  async getStudents(params: ParamsType) {
+    const res = await apiConfig().getRequest(ApiUrls.STUDENT, params);
     return res;
   },
 

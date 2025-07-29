@@ -33,7 +33,7 @@ function Student() {
   }, [location.search]);
 
   const { data, useStudentDelete, useStudentCreate, useStudentUpdate } =
-    useStudent();
+    useStudent(params);
   const { handlePagination } = useGeneral();
   const { mutate: deleteFn, isPending: isDeleting } = useStudentDelete();
   const { mutate: createFn, isPending: isCreating } = useStudentCreate();
@@ -155,7 +155,7 @@ function Student() {
       <Table<Student>
         bordered
         columns={columns}
-        dataSource={data?.data.students}
+        dataSource={data?.data.data}
         rowKey={(row) => row.id!}
         pagination={{
           current: params.page,
