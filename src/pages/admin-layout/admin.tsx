@@ -10,7 +10,7 @@ import {
 import type { MenuProps } from "antd";
 import { Button, Layout, Menu, theme } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
-import { clearStorage } from "../../helpers";
+import { clearStorage } from "@helpers";
 const { Header, Content, Footer, Sider } = Layout;
 
 const siderStyle: React.CSSProperties = {
