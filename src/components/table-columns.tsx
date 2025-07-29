@@ -1,5 +1,11 @@
-import { type Course, type Group, type Room, type Student, type Teacher } from "@types";
-import type { TableProps } from "antd";
+import {
+  type Course,
+  type Group,
+  type Room,
+  type Student,
+  type Teacher,
+} from "@types";
+import { Tooltip, type TableProps } from "antd";
 
 export const GroupColumns: TableProps<Group>["columns"] = [
   {
@@ -40,11 +46,29 @@ export const TeacherColumns: TableProps<Teacher>["columns"] = [
 
 export const RoomColumns: TableProps<Room>["columns"] = [
   {
-    title: "Branches",
-    dataIndex: "branchId",
+    title: "Branch",
     key: "branchId",
-    render: (branch: { name: string }) => <span>{branch?.name}</span>,
+    render: (record: any) => {
+      let branches: any[] = [];
+
+      if (Array.isArray(record?.branches)) {
+        branches = record.branches;
+      } else if (record?.branch && typeof record.branch === "object") {
+        branches = [record.branch];
+      }
+
+      if (branches.length === 0) return <span>—</span>;
+
+      const firstBranch = branches[0]?.name || "No name";
+
+      return (
+        <Tooltip title={branches.map((b: any) => b.name).join(", ")}>
+          <span style={{ cursor: "pointer" }}>{firstBranch}</span>
+        </Tooltip>
+      );
+    },
   },
+
   {
     title: "Name",
     dataIndex: "name",

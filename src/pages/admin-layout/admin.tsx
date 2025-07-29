@@ -26,34 +26,34 @@ const siderStyle: React.CSSProperties = {
 
 const items: MenuProps["items"] = [
   {
-    key: "1",
+    key: "/admin",
     icon: React.createElement(UserOutlined),
-    label: <Link to="/admin/group">Group</Link>,
+    label: <Link to="/admin/group">Groups</Link>,
   },
   {
-    key: "2",
+    key: "/admin/students",
     icon: React.createElement(TeamOutlined),
     label: <Link to="/admin/student">Students</Link>,
   },
   {
-    key: "3",
+    key: "/admin/courses",
     icon: React.createElement(BookOutlined),
     label: <Link to="/admin/courses">Courses</Link>,
   },
   {
-    key: "4",
+    key: "/admin/branches",
     icon: React.createElement(ForkOutlined),
-    label: <Link to="/admin/branches">Branch</Link>,
+    label: <Link to="/admin/branches">Branches</Link>,
   },
   {
-    key: "5",
+    key: "/admin/teachers",
     icon: React.createElement(UserOutlined),
-    label: <Link to="/admin/teacher">Teacher</Link>,
+    label: <Link to="/admin/teacher">Teachers</Link>,
   },
   {
-    key: "6",
+    key: "/admin/rooms",
     icon: React.createElement(HomeOutlined),
-    label: <Link to="/admin/room">Room</Link>,
+    label: <Link to="/admin/room">Rooms</Link>,
   },
 ];
 
@@ -61,7 +61,7 @@ const Admin: React.FC = () => {
   const navigate = useNavigate();
   const logout = () => {
     clearStorage();
-  navigate("/");
+    navigate("/");
   };
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -69,7 +69,21 @@ const Admin: React.FC = () => {
   return (
     <Layout hasSider>
       <Sider style={siderStyle}>
-        <div className="demo-logo-vertical" />
+        <div
+          style={{
+            height: 64,
+            margin: 16,
+            borderRadius: 8,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 18,
+            fontWeight: "bold",
+            color: "white",
+          }}
+        >
+          Admin Panel
+        </div>
         <Menu
           theme="dark"
           mode="inline"
@@ -88,7 +102,6 @@ const Admin: React.FC = () => {
             marginBottom: "16px",
           }}
         >
-          <h1 style={{ margin: "0 16px" }}>Admin Panel</h1>
           <Button
             type="primary"
             style={{ margin: "16px" }}
