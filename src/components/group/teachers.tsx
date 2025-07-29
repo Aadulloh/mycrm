@@ -7,7 +7,6 @@ import {
   TeamOutlined,
   CrownOutlined,
   BookOutlined,
-  ClockCircleOutlined,
 } from "@ant-design/icons";
 import dayjs from "dayjs";
 import React from "react";
@@ -86,7 +85,7 @@ function GroupTeachers({ teachers }: any) {
           style={{ background: "transparent" }}
           ghost
         >
-          {teachers.map((item: any, index: number) => {
+          {teachers.map((item: any) => {
             const { teacher, start_date, end_date } = item;
             const fullName = `${teacher.first_name} ${teacher.last_name}`;
             const avatar = teacher.avatar_url || "";
@@ -280,9 +279,7 @@ function GroupTeachers({ teachers }: any) {
                         }}
                       >
                         {roleIcon &&
-                          React.cloneElement(roleIcon as React.ReactElement, {
-                            style: { color: "#fff", fontSize: "16px" },
-                          })}
+                          React.cloneElement(roleIcon as React.ReactElement)}
                       </div>
                       <div>
                         <Text
