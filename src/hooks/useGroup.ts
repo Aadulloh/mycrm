@@ -74,6 +74,24 @@ export const useGroup = (params: ParamsType, id?: number) => {
     });
   };
 
+  const useGroupAddStudent = () => {
+    return useMutation({
+      mutationFn: async (data: any) => GroupService.addStudentToGroup(data),
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ["group-student"] });
+      },
+    });
+  };
+
+  const useGroupAddTeacher = () => {
+    return useMutation({
+      mutationFn: async (data: any) => GroupService.addTeacherToGroup(data),
+      onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ["groups", "add-teacher"] });
+      },
+    });
+  };
+
   return {
     data,
     lessons,
@@ -83,5 +101,7 @@ export const useGroup = (params: ParamsType, id?: number) => {
     useGroupDelete,
     useGroupUpdate,
     handlePagination,
+    useGroupAddStudent,
+    useGroupAddTeacher,
   };
 };

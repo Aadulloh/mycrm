@@ -1,10 +1,10 @@
 import { ApiUrls } from "@api/api-urls";
 import { apiConfig } from "@api/config";
-import type { Teacher } from "@types";
+import type { ParamsType, Teacher } from "@types";
 
 export const TeacherService = {
-  async getTeachers() {
-    const res = await apiConfig().getRequest(ApiUrls.TEACHER);
+  async getTeachers(params: ParamsType) {
+    const res = await apiConfig().getRequest(ApiUrls.TEACHER,params);
     return res;
   },
   async createTeacher(model: Teacher) {
@@ -20,6 +20,16 @@ export const TeacherService = {
   },
   async deleteTeacher(id: number) {
     const res = await apiConfig().deleteRequest(`${ApiUrls.TEACHER}/${id}`);
+    return res;
+  },
+  async getTeacherGroups() {
+    const res = await apiConfig().getRequest(ApiUrls.TEACHER_GROUPS);
+    return res;
+  },
+  async getTeacherGroupById(id: number) {
+    const res = await apiConfig().getRequest(
+      `${ApiUrls.TEACHER_GROUPS}/${id}/teacher`
+    );
     return res;
   },
 };

@@ -1,14 +1,14 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { TeacherService } from "@service";
-import type { Teacher } from "@types";
+import type { ParamsType, Teacher } from "@types";
 import { message } from "antd";
 
 // GET ALL TEACHERS
-export const useTeachers = () => {
+export const useTeachers = (params: ParamsType) => {
   return useQuery({
-    queryKey: ["teacher"],
+    queryKey: ["teacher", params],
     queryFn: async () => {
-      const res = await TeacherService.getTeachers();
+      const res = await TeacherService.getTeachers(params);
       return res;
     },
   });

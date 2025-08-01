@@ -44,4 +44,19 @@ export const GroupService = {
     const res = await apiConfig().deleteRequest(`${ApiUrls.GROUPS}/${id}`);
     return res;
   },
+
+  async addStudentToGroup(data: any) {
+    const res = await apiConfig().postRequest(
+      `${ApiUrls.GROUP_STUDENTS}`,
+      data
+    );
+    return res;
+  },
+  async addTeacherToGroup(data: any) {
+    const res = await apiConfig().postRequest(
+      `${ApiUrls.GROUP_TEACHERS}`,
+      data
+    );
+    return res;
+  },
 };

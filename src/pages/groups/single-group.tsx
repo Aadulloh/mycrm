@@ -17,7 +17,9 @@ function SingleGroup() {
       {lessons?.data.lessons.length > 0 && (
         <GroupLessons lessons={lessons?.data.lessons} />
       )}
-      {students?.data.length > 0 && <GroupStudents students={students?.data} />}
+      {students?.data.length > 0 && (
+        <GroupStudents students={students?.data} id={id} />
+      )}
     </div>
   );
 }
