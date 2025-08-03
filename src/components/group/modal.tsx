@@ -8,8 +8,8 @@ import { Controller, useForm } from "react-hook-form";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-  studentId: yup.array().of(yup.number()).optional(), // Make optional and specify type
-  teacherId: yup.array().of(yup.number()).optional(), // Make optional and specify type
+  studentId: yup.array().of(yup.number()).optional(),
+  teacherId: yup.array().of(yup.number()).optional(),
 });
 
 interface ThisProps extends ModalProps {

@@ -12,11 +12,6 @@ const LoginChildren = lazy(() => import("./protect-route/login-protect"));
 const Branch = lazy(() => import("./branch/branch"));
 const Room = lazy(() => import("./rooms/room"));
 const SingleGroup = lazy(() => import("./groups/single-group"));
-const TeacherGroupStudents = lazy(
-  () => import("./teacher-groups/group-students")
-);
-const TeacherGroups = lazy(() => import("./teacher-groups/teacher-groups"));
-const TeacherLayout = lazy(() => import("./teacher-groups/teacher-groups"));
 
 export {
   SignIn,
@@ -31,7 +26,4 @@ export {
   Branch,
   Room,
   SingleGroup,
-  TeacherGroupStudents,
-  TeacherGroups,
-  TeacherLayout,
 };

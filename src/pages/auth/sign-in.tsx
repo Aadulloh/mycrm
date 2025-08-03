@@ -28,7 +28,7 @@ const SignIn = () => {
         }
       );
     } catch (error) {
-      message.error("Login failed. Please check your credentials.");
+      message.error(`Login failed ${error}`);
     } finally {
       setSubmitting(false);
     }
