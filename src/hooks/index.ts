@@ -6,3 +6,5 @@ export * from "./useStudent"
 export * from "./useTeacher"
 export * from "./useGeneral"
 export * from "./useRoom";
+export * from "./useAttendance";
+export * from "./useLessons";

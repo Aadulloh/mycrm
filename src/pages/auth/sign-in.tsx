@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setItem } from "../../helpers";
 import { Button, Card, Input, Select, message, Typography } from "antd";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -97,6 +97,9 @@ const SignIn = () => {
             <Button type="primary" htmlType="submit" block loading={isPending}>
               Sign In
             </Button>
+            <Link className="flex justify-center mt-3" to={"forgot-password"}>
+              Forgot password
+            </Link>
           </Form>
         )}
       </Formik>

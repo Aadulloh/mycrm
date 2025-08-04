@@ -4,7 +4,7 @@ import type { ParamsType, Teacher } from "@types";
 
 export const TeacherService = {
   async getTeachers(params: ParamsType) {
-    const res = await apiConfig().getRequest(ApiUrls.TEACHER,params);
+    const res = await apiConfig().getRequest(ApiUrls.TEACHER, params);
     return res;
   },
   async createTeacher(model: Teacher) {
@@ -26,9 +26,9 @@ export const TeacherService = {
     const res = await apiConfig().getRequest(ApiUrls.TEACHER_GROUPS);
     return res;
   },
-  async getTeacherGroupById(id: number) {
+  async getGroupDetailsForTeacher(id: number) {
     const res = await apiConfig().getRequest(
-      `${ApiUrls.TEACHER_GROUPS}/${id}/teacher`
+      ApiUrls.GET_GROUP_DETAILS_FOR_TEACHER(id)
     );
     return res;
   },

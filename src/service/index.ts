@@ -5,3 +5,5 @@ export * from "./student.service.ts";
 export * from "./branch.service.ts";
 export * from "./teacher.service.ts";
 export * from "./room.service.ts";
+export * from "./attendance.service.ts";
+export * from "./lessons.service.ts";

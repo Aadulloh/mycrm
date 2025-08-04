@@ -1,20 +1,10 @@
-import {
-  Collapse,
-  Avatar,
-  Card,
-  Space,
-  Typography,
-  Button,
-} from "antd";
+import { Collapse, Avatar, Card, Space, Typography } from "antd";
 import {
   UserOutlined,
   PhoneOutlined,
   MailOutlined,
   TeamOutlined,
-  PlusOutlined,
 } from "@ant-design/icons";
-import AddTeacherorStudentModal from "./modal";
-import { useState } from "react";
 
 const { Panel } = Collapse;
 const { Text, Title } = Typography;
@@ -28,26 +18,12 @@ const blueColors = {
   border: "#d6e7ff",
 };
 
-function GroupStudents({ students, id }: any) {
+function GroupStudents({ students }: any) {
   const getInitials = (firstName: string, lastName: string) =>
     `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
 
-  const [open, setOpen] = useState(false);
-  const [addingTeacher, setAddingTeacher] = useState(false);
-
-  const toggle = () => setOpen(!open);
-
   return (
     <>
-      {open && (
-        <AddTeacherorStudentModal
-          open={open}
-          toggle={toggle}
-          addingTeacher={addingTeacher}
-          groupId={+id!}
-        />
-      )}
-
       <div
         style={{ padding: "24px", background: "#fafafa", minHeight: "100vh" }}
       >
@@ -61,18 +37,6 @@ function GroupStudents({ students, id }: any) {
                 Students Directory
               </Title>
             </Space>
-          }
-          extra={
-            <Button
-              icon={<PlusOutlined />}
-              type="primary"
-              onClick={() => {
-                setAddingTeacher(false);
-                setOpen(true);
-              }}
-            >
-              Add Student
-            </Button>
           }
           style={{
             borderRadius: "8px",

@@ -14,6 +14,26 @@ export const useTeachers = (params: ParamsType) => {
   });
 };
 
+export const useGetTeacherGroup = (id: number = 0) => {
+  const { data: teacherGroupsData } = useQuery({
+    enabled: !id,
+    queryKey: ["teacher-groups"],
+    queryFn: () => TeacherService.getTeacherGroups(),
+  });
+
+  const teacherGroups = teacherGroupsData?.data || [];
+  return teacherGroups;
+};
+
+export const useDetailsForTeacher = (params: ParamsType | {}, id: number = 0) => {
+  const { data: groupDetailsForTeacher } = useQuery({
+    enabled: !!id,
+    queryKey: ["groupDetailsForTeacher", id],
+    queryFn: async () => TeacherService.getGroupDetailsForTeacher(id),
+  });
+  return groupDetailsForTeacher;
+};
+
 // CREATE TEACHER
 export const useCreateTeacher = () => {
   const queryClient = useQueryClient();
