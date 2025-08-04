@@ -136,18 +136,6 @@ const SingleGroupPage = () => {
       : []),
   ];
   const studentsData = [
-    // {
-    // 	id: 1,
-    // 	name: "Alisher Karimov",
-    // 	email: "alisher@gmail.com",
-    // 	phone: "+998 90 111 22 33",
-    // 	joinDate: "2024-10-15",
-    // 	progress: 85,
-    // 	attendance: 92,
-    // 	status: "active",
-    // 	avatar: null,
-    // 	rating: 4.5,
-    // },
     ...(Array.isArray(groupDatas?.groupStudents)
       ? groupDatas.groupStudents.map((student: any) => {
           return {
@@ -171,15 +159,6 @@ const SingleGroupPage = () => {
       : []),
   ];
   const lessonsData = [
-    // {
-    // 	id: 1,
-    // 	title: "HTML Asoslari",
-    // 	date: "2024-10-15",
-    // 	time: "18:00-20:00",
-    // 	status: "completed",
-    // 	videoUrl: "https://example.com/video1",
-    // 	attendance: 18,
-    // },
     ...(Array.isArray(groupDatas?.lessons)
       ? groupDatas.lessons.map((lesson: any) => {
           return {
@@ -210,7 +189,6 @@ const SingleGroupPage = () => {
         (lesson: any) =>
           lesson.date.split("T")[0] === new Date().toISOString().split("T")[0]
       );
-      // console.log(lessonsData, new Date().toISOString().split("T")[0]);
       if (!currentLesson) {
         message.error("No lesson found for today!");
         return;
@@ -234,12 +212,6 @@ const SingleGroupPage = () => {
       console.log("Lesson data:", values);
       console.log("Attendance:", attendanceData);
       console.log(currentLesson);
-      // if (capturedImage) {
-      // 	await sendPhotoToBackend();
-      // } else {
-      // 	message.warning("Take photo for lesson!");
-      // 	return;
-      // }
       setIsLessonModalVisible(false);
       form.resetFields();
       closeCamera();
@@ -712,16 +684,6 @@ const SingleGroupPage = () => {
             </Row>
           </TabPane>
           <TabPane tab={`Lessons (${lessonsData.length})`} key="3">
-            {/* <div className="mb-4 flex justify-between items-center">
-							<Button
-								type="primary"
-								icon={<PlusOutlined />}
-								onClick={handleStartLesson}
-								className="bg-blue-600 hover:bg-blue-700"
-							>
-								New Lesson
-							</Button>
-						</div> */}
             <Table
               columns={lessonsColumns}
               dataSource={lessonsData}
