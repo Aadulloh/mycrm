@@ -7,7 +7,7 @@ const ForgotPassword = () => {
   const [step, setStep] = useState<"sendOtp" | "verifyOtp" | "newPassword">(
     "sendOtp"
   );
-  const [role, setRole] = useState("");
+
   const { mutate: sendOtp, isPending: isSendingOtp } = useForgotPassword();
   const { mutate: verifyOtp, isPending: isVerifyingOtp } = useVerifyOtp();
   const { mutate: resetPassword, isPending: isResettingPassword } =
@@ -20,7 +20,6 @@ const ForgotPassword = () => {
       {
         onSuccess: (res: any) => {
           if (res?.status === 201) {
-            setRole(role);
             localStorage.setItem("resetEmail", email); // store temporarily
             setStep("verifyOtp");
           }
@@ -36,8 +35,9 @@ const ForgotPassword = () => {
       message.error("Please enter a valid numeric OTP");
       return;
     }
+
     verifyOtp(
-      { otp: Number(values.otp) },
+      { otp: otpNumber },
       {
         onSuccess: (res: any) => {
           if (res?.status === 200) {

@@ -39,7 +39,7 @@ const { TabPane } = Tabs;
 const { TextArea } = Input;
 const SingleGroupPage = () => {
   const { id } = useParams();
-  const groupDetailsForTeacher = useDetailsForTeacher({}, +id!);
+  const groupDetailsForTeacher = useDetailsForTeacher(+id!);
   const groupDatas = groupDetailsForTeacher?.data;
   const { useLessonUpdateStatusAndNotes } = useLessons({});
   const { mutate: updateLessonStatusAndNote } = useLessonUpdateStatusAndNotes();

@@ -25,7 +25,7 @@ export const useGetTeacherGroup = (id: number = 0) => {
   return teacherGroups;
 };
 
-export const useDetailsForTeacher = (params: ParamsType | {}, id: number = 0) => {
+export const useDetailsForTeacher = (id: number = 0) => {
   const { data: groupDetailsForTeacher } = useQuery({
     enabled: !!id,
     queryKey: ["groupDetailsForTeacher", id],
