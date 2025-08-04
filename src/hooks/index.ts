@@ -8,3 +8,4 @@ export * from "./useGeneral"
 export * from "./useRoom";
 export * from "./useAttendance";
 export * from "./useLessons";
+export * from "./useAdmin";

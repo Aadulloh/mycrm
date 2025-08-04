@@ -18,6 +18,7 @@ const TeacherSingleGroupPage = lazy(
   () => import("./teachers-layout/groups/teachers-single-group")
 );
 const ForgotPassword = lazy(() => import("./auth/forgot-password"));
+const AdminProfile = lazy(() => import("./admin-layout/admin-profile"));
 
 export {
   SignIn,
@@ -36,4 +37,5 @@ export {
   TeacherGroups,
   TeacherSingleGroupPage,
   ForgotPassword,
+  AdminProfile,
 };

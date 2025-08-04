@@ -55,6 +55,11 @@ const items: MenuProps["items"] = [
     icon: React.createElement(HomeOutlined),
     label: <Link to="/admin/room">Rooms</Link>,
   },
+  {
+    key: "/admin/profile",
+    icon: React.createElement(UserOutlined),
+    label: <Link to="/admin/profile">Profile</Link>,
+  },
 ];
 
 const Admin: React.FC = () => {

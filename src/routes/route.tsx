@@ -22,6 +22,7 @@ import {
   TeacherGroups,
   TeacherSingleGroupPage,
   ForgotPassword,
+  AdminProfile,
 } from "@pages";
 import Notfoun from "../pages/not-found/not-found";
 const App = lazy(() => import("../App"));
@@ -55,6 +56,7 @@ const Router = () => {
           <Route path="student" element={<Students />}></Route>
           <Route path="teacher" element={<Teachers />}></Route>
           <Route path="room" element={<Room />}></Route>
+          <Route path="profile" element={<AdminProfile />} />
         </Route>
 
         <Route

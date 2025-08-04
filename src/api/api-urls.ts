@@ -20,6 +20,12 @@ export class ApiUrls {
   //room
   public static ROOM: string = "/rooms";
 
+  //admin
+  public static ADMIN_PROFILE: string = "/admin/profile";
+  public static UPDATE_ADMIN = (id: number) => `/admin/${id}`;
+  public static ADMIN_CHANGE_PASSWORD = (id: number) =>
+    `/admin/change-password/${id}`;
+
   //lessons
   public static LESSONS: string = "/lessons";
   public static GROUP_LESSONS: string = this.LESSONS + "/group";
