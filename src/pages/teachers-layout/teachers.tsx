@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import { TeamOutlined, UserOutlined } from "@ant-design/icons";
+import { TeamOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Button, Layout, Menu, theme } from "antd";
 import { LogoutOutlined } from "@ant-design/icons";
@@ -24,11 +24,11 @@ const items: MenuProps["items"] = [
     icon: React.createElement(TeamOutlined),
     label: <Link to="/teacher/my-groups">Groups</Link>,
   },
-  {
-    key: "/teacher/students",
-    icon: React.createElement(UserOutlined),
-    label: <Link to="/teacher/students">Students</Link>,
-  },
+  // {
+  //   key: "/teacher/students",
+  //   icon: React.createElement(UserOutlined),
+  //   label: <Link to="/teacher/students">Students</Link>,
+  // },
 ];
 
 const Teacher: React.FC = () => {

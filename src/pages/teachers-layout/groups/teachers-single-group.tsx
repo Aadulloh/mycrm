@@ -1,5 +1,4 @@
 import {
-  ArrowLeftOutlined,
   BookOutlined,
   CalendarOutlined,
   CameraOutlined,
@@ -34,7 +33,7 @@ import {
 } from "antd";
 import dayjs from "dayjs";
 import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 const { TabPane } = Tabs;
 const { TextArea } = Input;
 const SingleGroupPage = () => {
@@ -63,7 +62,7 @@ const SingleGroupPage = () => {
     id: 1,
     name: groupDatas?.group?.name || "No Name",
     course: groupDatas?.group?.course?.title || "No Course",
-    level: groupDatas?.group?.level || "Intermediate",
+    level: groupDatas?.group?.level || "Foundation",
     students: Array.isArray(groupDatas?.groupStudents)
       ? groupDatas.groupStudents.filter(
           (student: any) => student.status === true
@@ -93,7 +92,7 @@ const SingleGroupPage = () => {
     },
     startDate: groupDatas?.group?.start_date || "2024-01-01",
     endDate: groupDatas?.group?.end_date || "2024-12-31",
-    room: groupDatas?.group?.room || "No Data",
+    room: groupDatas?.group?.room || "No Room",
     price: groupDatas?.group?.course?.price || "0",
     totalLessons: Array.isArray(groupDatas?.lessons)
       ? groupDatas.lessons.length
@@ -106,17 +105,6 @@ const SingleGroupPage = () => {
     description: groupDatas?.group?.course?.description || "No Data",
   };
   const teachersData = [
-    // {
-    // 	id: 1,
-    // 	name: "Sardor Rahimov",
-    // 	role: "Main Teacher",
-    // 	email: "sardor@crm.uz",
-    // 	phone: "+998 90 123 45 67",
-    // 	rating: 4.8,
-    // 	experience: "3 yil",
-    // 	avatar: null,
-    // 	isMain: true,
-    // },
     ...(Array.isArray(groupDatas?.groupTeachers)
       ? groupDatas.groupTeachers.map((teacher: any) => {
           return {
@@ -496,15 +484,9 @@ const SingleGroupPage = () => {
   ];
   return (
     <div className="space-y-6">
+      <Link to={`/teacher/groups`}>Back</Link>
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-4">
-          <Button
-            icon={<ArrowLeftOutlined />}
-            onClick={() => window.history.back()}
-            className="hover:bg-gray-100"
-          >
-            Back
-          </Button>
           <div>
             <h1 className="text-2xl font-bold text-gray-900">
               {groupData.name}
