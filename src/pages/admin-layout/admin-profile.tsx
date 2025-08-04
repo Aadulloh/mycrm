@@ -26,7 +26,7 @@ import {
 } from "antd";
 import dayjs from "dayjs";
 import { useState } from "react";
-import { getItem } from "@helpers";
+import { getItem, setItem } from "@helpers";
 const { TabPane } = Tabs;
 const AdminProfile = () => {
   const { useAdminUpdate, useChangePassword } = useAdmins();
@@ -38,6 +38,7 @@ const AdminProfile = () => {
   const [activeTab, setActiveTab] = useState("1");
   const { data } = useAdmin();
   const adminData = data?.data;
+  setItem("user_id", data?.data.id);
   const user_id = getItem("user_id");
   const handleEdit = () => {
     setIsEditing(true);

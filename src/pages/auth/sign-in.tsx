@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { setItem } from "../../helpers";
+import { setItem } from "@helpers";
 import { Button, Card, Input, Select, message, Typography } from "antd";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useAuth } from "@hooks";
